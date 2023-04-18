@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+:root {
+    --Very-Light-Grayish-Blue: hsl(240, 78%, 98%);
+    --Light-Grayish-Blue: hsl(234, 14%, 74%);
+    --Grayish-Blue: hsl(233, 13%, 49%);
+    --Dark-Grayish-Blue: hsl(232, 13%, 33%);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--Very-Light-Grayish-Blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+body::before {
+    content: '';
+    background-image: url('./images/bg-top.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+body::after {
+    content: '';
+    background-image: url('./images/bg-bottom.svg');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+h1 {
+    color: var(--Grayish-Blue);
+}
+.container {
+    margin: auto;
+    width: 1200px;
+    max-width: 100%;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.toggle-container {
+    color: var(--Light-Grayish-Blue);
+    margin-bottom: 4rem;
+}
+.price-box {
+    color: var(--Grayish-Blue);
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 3rem;
+}
+.price-box-premium {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: white;
+    transform: scale(1.2);
+}
+.price-box.price-box-premium * {
+    transform: scale(0.9);
+}
+.price-box.price-box-premium button {
+    background-image: none;
+    background-color: white;
+    color: hsl(237, 63%, 64%);
+}
+.price-box p {
+    width: 300px;
+    font-size: 4rem;
+}
+.price-box ul {
+    border-top: 1px solid var(--Grayish-Blue);
+    padding: 15px 0;
+}
+.price-box ul li {
+    list-style: none;
+    border-bottom: 1px solid var(--Grayish-Blue);
+    padding: 15px 0;
+}
+.price-box button {
+    font-family: inherit;
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: white;
+    font-size: 1rem;
+    padding: 15px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 15px;
+    margin-top: 1rem;
+}
+.price-box .monthly {
+    display: none;
+}
+.show-monthly .price-box .monthly {
+    display: block;
+}
+.show-monthly .price-box .annually {
+    display: none;
+}
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toggle-container label {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    border-radius: 5rem;
+    position: relative;
+    cursor: pointer;
+
+}
+.toggle-container input {
+    position: absolute;
+    left: -9999px;
+}
+.toggle-container label .ball {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    transition: transform 0.4s ease;
+}
+.toggle-container input:checked + label .ball {
+    /* alternative but prefer animation */
+    /* left: auto;
+    right: 2.5px; */
+    transform: translateX(40px);
+}
+
+@media screen and (max-width: 1300px) {
+    .flex {
+        flex-direction: column;
+    }
+    .price-box.price-box-premium {
+        transform: scale(1);
+    }
+    .price-box.price-box-premium > * {
+        transform: scale(1);
+    }
+}
